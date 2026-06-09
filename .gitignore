@@ -3,3 +3,12 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+.idea/
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# User secrets
+appsettings.local.json
