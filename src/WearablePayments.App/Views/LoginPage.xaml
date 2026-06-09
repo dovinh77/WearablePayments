@@ -18,5 +18,12 @@
                 TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"
                 BorderWidth="0"
                 HorizontalOptions="Center"/>
+
+        <Button Text="Don't have an account? Sign Up"
+                Command="{Binding RegisterCommand}"
+                BackgroundColor="Transparent"
+                TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"
+                BorderWidth="0"
+                HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

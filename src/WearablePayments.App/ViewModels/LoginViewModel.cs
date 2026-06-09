@@ -20,6 +20,10 @@ public partial class LoginViewModel : ObservableObject
         await Shell.Current.GoToAsync("ForgotPassword");
 
     [RelayCommand]
+    private async Task RegisterAsync() =>
+        await Shell.Current.GoToAsync("Register");
+
+    [RelayCommand]
     private async Task LoginAsync()
     {
         ErrorMessage = string.Empty;

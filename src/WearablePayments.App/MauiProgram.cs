@@ -22,9 +22,11 @@ public static class MauiProgram
         builder.Services.AddTransient<LoginViewModel>();
         builder.Services.AddTransient<DashboardViewModel>();
         builder.Services.AddTransient<ForgotPasswordViewModel>();
+        builder.Services.AddTransient<RegisterViewModel>();
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<DashboardPage>();
         builder.Services.AddTransient<ForgotPasswordPage>();
+        builder.Services.AddTransient<RegisterPage>();
 
 #if DEBUG
         builder.Logging.AddDebug();
