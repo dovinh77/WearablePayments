@@ -16,6 +16,10 @@ public partial class LoginViewModel : ObservableObject
     public LoginViewModel(ApiService api) => _api = api;
 
     [RelayCommand]
+    private async Task ForgotPasswordAsync() =>
+        await Shell.Current.GoToAsync("ForgotPassword");
+
+    [RelayCommand]
     private async Task LoginAsync()
     {
         ErrorMessage = string.Empty;

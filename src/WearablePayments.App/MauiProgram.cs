@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using WearablePayments.App.Services;
 using WearablePayments.App.ViewModels;
@@ -13,7 +12,6 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
-            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts => { });
 
         builder.Services.AddHttpClient<ApiService>(client =>
@@ -23,8 +21,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<BleService>();
         builder.Services.AddTransient<LoginViewModel>();
         builder.Services.AddTransient<DashboardViewModel>();
+        builder.Services.AddTransient<ForgotPasswordViewModel>();
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<DashboardPage>();
+        builder.Services.AddTransient<ForgotPasswordPage>();
 
 #if DEBUG
         builder.Logging.AddDebug();
