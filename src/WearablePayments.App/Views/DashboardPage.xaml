@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WearablePayments.App.Views.DashboardPage"
+             Title="Transactions">
+    <RefreshView Command="{Binding LoadCommand}" IsRefreshing="{Binding IsBusy}">
+        <CollectionView ItemsSource="{Binding Transactions}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="16,8" ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="{Binding MerchantName}" FontAttributes="Bold"/>
+                            <Label Text="{Binding CreatedAt, StringFormat='{0:dd MMM yyyy HH:mm}'}" FontSize="12" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                            <Label Text="{Binding Amount, StringFormat='{0:C}'}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Status}" FontSize="12"
+                                   TextColor="{Binding Status, Converter={StaticResource StatusColorConverter}}"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
