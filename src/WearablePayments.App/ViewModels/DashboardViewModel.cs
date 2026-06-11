@@ -15,6 +15,10 @@ public partial class DashboardViewModel : ObservableObject
     public DashboardViewModel(ApiService api) => _api = api;
 
     [RelayCommand]
+    private async Task ProfileAsync() =>
+        await Shell.Current.GoToAsync("Profile");
+
+    [RelayCommand]
     private async Task LoadAsync()
     {
         IsBusy = true;

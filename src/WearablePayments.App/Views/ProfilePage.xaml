@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WearablePayments.App.Views.ProfilePage"
+             Title="Profile">
+    <ScrollView>
+        <VerticalStackLayout Padding="32" Spacing="24">
+
+            <!-- Avatar + name -->
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                <Frame WidthRequest="80" HeightRequest="80" CornerRadius="40"
+                       BackgroundColor="#0066CC" Padding="0" HorizontalOptions="Center">
+                    <Label Text="{Binding Initials}" TextColor="White" FontSize="28"
+                           FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Frame>
+                <Label Text="{Binding FullName}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label Text="{Binding Email}" TextColor="Gray" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="1" Color="Gray" Opacity="0.3"/>
+
+            <!-- Edit name -->
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Full Name" FontAttributes="Bold" FontSize="14"/>
+                <Entry Text="{Binding FullName}" Placeholder="Full Name"/>
+                <Button Text="Update Name"
+                        Command="{Binding UpdateNameCommand}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="1" Color="Gray" Opacity="0.3"/>
+
+            <!-- Change password -->
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Change Password" FontAttributes="Bold" FontSize="14"/>
+                <Entry Text="{Binding CurrentPassword}" Placeholder="Current Password" IsPassword="True"/>
+                <Entry Text="{Binding NewPassword}" Placeholder="New Password" IsPassword="True"/>
+                <Entry Text="{Binding ConfirmNewPassword}" Placeholder="Confirm New Password" IsPassword="True"/>
+                <Button Text="Change Password"
+                        Command="{Binding ChangePasswordCommand}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+            </VerticalStackLayout>
+
+            <Label Text="{Binding StatusMessage}"
+                   TextColor="{Binding IsSuccess, Converter={StaticResource BoolToColorConverter}}"
+                   IsVisible="{Binding StatusMessage, Converter={StaticResource StringNotEmptyConverter}}"
+                   HorizontalTextAlignment="Center"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+
+            <BoxView HeightRequest="1" Color="Gray" Opacity="0.3"/>
+
+            <!-- Sign out -->
+            <Button Text="Sign Out"
+                    Command="{Binding SignOutCommand}"
+                    BackgroundColor="#CC0000"
+                    TextColor="White"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

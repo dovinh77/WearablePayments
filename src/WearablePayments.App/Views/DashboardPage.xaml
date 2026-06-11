@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WearablePayments.App.Views.DashboardPage"
              Title="Transactions">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Profile" Command="{Binding ProfileCommand}" Order="Primary"/>
+    </ContentPage.ToolbarItems>
     <RefreshView Command="{Binding LoadCommand}" IsRefreshing="{Binding IsBusy}">
         <CollectionView ItemsSource="{Binding Transactions}">
             <CollectionView.ItemTemplate>
